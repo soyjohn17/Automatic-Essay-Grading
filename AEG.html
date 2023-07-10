@@ -9,6 +9,11 @@
       margin: 0;
       padding: 20px;
       background-color: #f5f5f5;
+      background-image: url("bg.jpg");
+      background-size: cover;
+      
+
+    
     }
     h1 {
       text-align: center;
@@ -16,8 +21,8 @@
     .container {
       max-width: 800px;
       margin: 0 auto;
-      background-color: #fff;
-      border-radius: 5px;
+      background-color: #f2c603;
+      border-radius: 30px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       padding: 20px;
     }
@@ -34,8 +39,8 @@
       height: 200px;
       margin-bottom: 10px;
       border: 1px solid #ccc;
-      padding: 5px;
-      border-radius: 3px;
+      padding: 0px;
+      border-radius: 5px;
       resize: vertical;
     }
     .essay-form .buttons {
@@ -47,13 +52,13 @@
       padding: 10px 20px;
       font-weight: bold;
       cursor: pointer;
-      background-color: #4CAF50;
+      background-color: #4e4e8a;
       color: #fff;
       border: none;
-      border-radius: 3px;
+      border-radius: 300px;
     }
     .essay-form button:hover {
-      background-color: #45a049;
+      background-color: #ec0000;
     }
     .essay-form input[type="file"] {
       display: none;
@@ -62,19 +67,27 @@
       padding: 10px 20px;
       font-weight: bold;
       cursor: pointer;
-      background-color: #2196F3;
+      background-color: #4e4e8a;
       color: #fff;
       border: none;
       border-radius: 3px;
     }
-    .essay-form .upload-button:hover {
-      background-color: #0b7dda;
+
+
+    .upload-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 500px;
+      background-color: #4e4e8a;
+      color: #fff;
     }
     .result {
       margin-top: 20px;
       border: 1px solid #ccc;
       padding: 20px;
-      border-radius: 3px;
+      border-radius: 5px;
       background-color: #f9f9f9;
     }
     .result h2 {
@@ -89,20 +102,34 @@
   <div class="container">
     <h1>Automatic Essay Grading</h1>
     <form class="essay-form">
-      <label for="essay">Essay:</label>
+      <!-- <label for="essay">Essay:</label> -->
       <textarea id="essay" placeholder="Enter your essay here"></textarea>
       <div class="buttons">
-        <button type="submit">Grade Essay</button>
-        <button type="button" id="clear-button">Clear Essay</button>
-        <label for="file-upload" class="upload-button">Upload Essay</label>
-        <input type="file" id="file-upload">
+       
+        <div class="btn-container">
+          <button class="btn">Grade</button>
+          <button class="btn btn-clear">Clear</button>
+    
+        </div>
+        
+        
+        
       </div>
+      
     </form>
     <div class="result">
       <h2>Grading Result:</h2>
       <p id="grading-result">Grade will appear here</p>
+      
+    </div>
+    <div class="container">
+      <div class="centered-div">
+      <input type="file" class="upload-btn" accept=".txt,.doc,.docx,.pdf">
     </div>
   </div>
+
+
+  
 
   <script>
     // Add your JavaScript code here to handle essay grading
