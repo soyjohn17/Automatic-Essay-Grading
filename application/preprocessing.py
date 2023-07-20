@@ -2,7 +2,8 @@ import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
 from bs4 import BeautifulSoup
 from string import punctuation
-import re 
+import re
+from nltk import word_tokenize
 
 # nlp = spacy.load("en_core_web_lg")
 stop_words = set(STOP_WORDS)
@@ -34,20 +35,7 @@ def remove_chars(tweet):
     return cleaned_tweet
 
 def remove_single_char_func(text, threshold=1):
-    '''
-    Removes single characters from string, if present
-    
-    Step 1: Use word_tokenize() to get tokens from string
-    Step 2: Removes words whose length falls below the threshold (by default = 1)
-    
-    Args:
-        text (str): String to which the functions are to be applied, string
-    
-    Returns:
-        String with removed words whose length was below the threshold (by default = 1)
-    ''' 
     threshold = threshold
-    
     words = word_tokenize(text)
     text = ' '.join([word for word in words if len(word) > threshold])
     return text

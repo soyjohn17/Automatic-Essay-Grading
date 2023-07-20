@@ -2,36 +2,30 @@
 <html>
 <head>
   <title>Automatic Essay Grading</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <div class="container">
-    <h1>AUTOMATIC ESSAY GRADING</h1>
-
-    <div class="form-group">
-      <label for="essay">Type your essay:</label>
-      <textarea id="essay" name="essay" placeholder="Enter your essay here"></textarea>
-    </div>
-
-    <div class="form-group">
-      <label for="file">Upload your essay:</label>
-      <input type="file" id="file" name="file">
-    </div>
-
-
-    <div class="form-group">
-      <input type="submit" value="Submit">
-      <input type="button" value="Clear">
-    </div>
-
-    <div class="graded-result">
-      <h2>Graded Result:</h2>
-      <p id="result"></p>
+    <h1>Automatic Essay Grading</h1>
+    <form class="essay-form" method = "POST">
+      <!-- <label for="essay">Type Your Essay:</label> -->
+      <textarea id="essay" name = "essay" placeholder="Enter your essay here..."></textarea>
+      <div class="buttons">
+        <div>
+          <label>
+              Upload Essay : <input type="file" id="file-upload" name="file-upload" class="upload-btn" accept=".txt,.doc,.docx,.pdf">
+          </label>
+        </div>
+        <div class="btn-container">
+          <button class="btn" type = "submit">Grade</button>
+          <button class="btn btn-clear">Clear</button>
+        </div> 
+      </div>
+    </form>
+    <div class="result">
+      <h2>Grading Result:</h2>
+      <p id="grading-result">Grade result will appear here</p>
     </div>
   </div>
-
-  <script>
-    // JavaScript code can be added here to handle form submission and result display
-  </script>
 </body>
 </html>
