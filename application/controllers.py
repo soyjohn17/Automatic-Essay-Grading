@@ -9,9 +9,6 @@ from spacy.lang.en.stop_words import STOP_WORDS
 stop_words = set(STOP_WORDS)
 stop_words.update(punctuation)
 
-from sklearn.feature_extraction.text import TfidfVectorizer
-tf = TfidfVectorizer()
-
 import pickle
 
 # Define route for grading essays
@@ -29,16 +26,27 @@ def grade_essay():
         essay = remove_chars(essay)
         essay = remove_single_char_func(essay)
 
-        features = tf.fit_transform([essay])
+        with open('./model/tfid_model.pkl', 'rb') as file:
+            tf = pickle.load(file)
+
+        
+
+        features = tf.transform([essay])
+
+        with open('./model/selector.pkl', 'rb') as file:
+            selector = pickle.load(file)
+
+        features = selector.transform(features)
+
 
         with open('./model/random_forest_model.pkl', 'rb') as file:
             model = pickle.load(file)
 
         print(model.predict(features))
         
-        
-
-
-
-
     return render_template('index.html')
+    
+
+@app.route('/results', methods=['GET', 'POST'])
+def results():
+    return render_template('results.html')

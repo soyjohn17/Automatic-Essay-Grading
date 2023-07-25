@@ -13,19 +13,22 @@
       <div class="buttons">
         <div>
           <label>
-              Upload Essay : <input type="file" id="file-upload" name="file-upload" class="upload-btn" accept=".txt,.doc,.docx,.pdf">
+            <b style="color: #000000;">Upload Essay :</b> <input type="file" id="file-upload" name="file-upload" class="upload-btn" accept=".txt,.doc,.docx,.pdf">
           </label>
         </div>
         <div class="btn-container">
-          <button class="btn" type = "submit">Grade</button>
-          <button class="btn btn-clear">Clear</button>
+          <button class="btn">
+            <a href="/results">Grade Essay</a>
+          </button>
+          <button class="btn btn-clear" id="clearButton">Clear Essay</button>
         </div> 
       </div>
     </form>
-    <div class="result">
+    <!-- <div class="result">
       <h2>Grading Result:</h2>
       <p id="grading-result">Grade result will appear here</p>
-    </div>
+    </div> -->
   </div>
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
 </body>
 </html>
